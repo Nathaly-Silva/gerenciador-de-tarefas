@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Tarefa } from './tarefa.model';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
+
 export class TarefaService {
 
   constructor() { }
@@ -18,7 +17,6 @@ export class TarefaService {
     // cadastrar uma Tarefa (tarefa: Tarefa)que contem os 3 atributos cadastrados id, nome, concluido ou não
     cadastrar (tarefa: Tarefa): void {
       const tarefas = this.listarTodos() //chama o metodo acima para listar todas as tarefas
-      
       tarefa.id = new Date().getTime(); //new Date().getTime() segundos da data de 1970 ate a data atual, numero unico
       tarefas.push(tarefa); //pega a lista de tarefas retornadas do local Storage(const tarefas = this.listarTodos()) e insere a tarefa nela
       //push adiciona no final da lista
@@ -28,7 +26,7 @@ export class TarefaService {
     }
 
     buscarPorId(id: number): Tarefa | undefined { // busca pela tarefa referente ao id
-      const tarefas: Tarefa[] = this.listarTodos(); // chama todas as tarefas
+      const tarefas : Tarefa[]  = this.listarTodos(); // chama todas as tarefas
       return tarefas.find(tarefa => tarefa.id === id); 
       //utilitario JS find itera sobre todas as tarefas e verifica
       // se o id da tarefa é igual ao id que estou buscando 
