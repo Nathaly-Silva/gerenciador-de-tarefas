@@ -15,7 +15,7 @@ export class EditarTarefaComponent {
 
   @ViewChild('formTarefa') formTarefa: NgForm;
   
-  tarefa: Tarefa;
+  tarefa: Tarefa | any;
 
   constructor (
     private tarefaService: TarefaService,
